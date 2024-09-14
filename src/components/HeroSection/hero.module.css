@@ -1,0 +1,64 @@
+.hero {
+  width: 100%;
+  height: calc(100vh - 136px);
+  background-image: url("/heroImage.jpeg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  display: flex;
+}
+.textContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 16px;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+  border-radius: 20px;
+}
+.textContainer > * {
+  color: white;
+}
+.textContainer > span {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.textContainer > span > * {
+  color: white;
+}
+
+.type {
+  background-color: transparent;
+  letter-spacing: 0.1em;
+  width: 19ch;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: type 4s steps(19) infinite alternate-reverse,
+    blink 0.5s steps(19) infinite;
+  border-right: solid 3px white;
+}
+@keyframes type {
+  to {
+    width: 0ch;
+  }
+}
+@keyframes blink {
+  from {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+  to {
+    border-color: transparent;
+  }
+}
+
+.description {
+  max-width: 60ch;
+  text-wrap: wrap;
+  margin-bottom: 50px;
+  line-height: 1.6;
+}

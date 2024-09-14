@@ -1,0 +1,40 @@
+.blogContent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.blogCard {
+  width: 32%;
+  height: 500px;
+  gap: 20px;
+}
+.blogCard img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.blogCategory {
+  color: var(--accentColor);
+  font-weight: bold;
+}
+.blogTitle {
+  position: relative;
+  cursor: pointer;
+}
+
+.blogTitle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accentColor);
+  transition: width 0.3s ease;
+}
+
+.blogCard:hover .blogTitle::after {
+  width: 100%;
+}
