@@ -15,3 +15,5 @@ type Article = {
   createdAt: Date;
   updatedAt: Date;
 };
+declare module "pdfjs-dist/build/pdf.worker.entry";
+declare module "pdfjs-dist/build/pdf";

@@ -7,18 +7,24 @@ import Link from "next/link";
 
 type Props = {
   project: {
-    _id: string;
     name: string;
     description: string;
     technologies: string[];
-    url: string;
-    image: string;
-    github: string;
+    websiteLink: string;
+    imglink: string;
+    GithubLink: string;
   };
 };
 
 export default function Project({
-  project: { name, description, technologies, url, image, github },
+  project: {
+    name,
+    description,
+    technologies,
+    websiteLink,
+    imglink,
+    GithubLink,
+  },
 }: Props) {
   const setClasses = useCallback((technology: string): string => {
     const techLower = technology.toLowerCase();
@@ -37,11 +43,11 @@ export default function Project({
   return (
     <div className={Styles.project}>
       <section className={Styles.imageContainer}>
-        <Image src={image} alt={name} width={400} height={400} />
+        <Image src={imglink} alt={name} width={400} height={400} />
       </section>
       <aside className={Styles.projectContent}>
         <h3>{name}</h3>
-        <p>{description.substring(156)}</p>
+        <p>{description}</p>
         <ul className={Styles.technologyList}>
           {technologies.map((technology, idx) => (
             <li className={Styles[setClasses(technology)]} key={idx}>
@@ -50,12 +56,11 @@ export default function Project({
           ))}
         </ul>
         <span className={Styles.links}>
-          <Link href={url} className="flex align-center gap-2">
+          <Link href={websiteLink} className="flex align-center gap-2">
             {" "}
-            <FiExternalLink size={32} />{" "}
-            <p className="my-auto">Live Demo</p>
+            <FiExternalLink size={32} /> <p className="my-auto">Live Demo</p>
           </Link>
-          <Link href={github} className="flex align-center gap-2">
+          <Link href={GithubLink} className="flex align-center gap-2">
             <FaGithub size={32} /> <p className="my-auto">Code</p>
           </Link>
         </span>

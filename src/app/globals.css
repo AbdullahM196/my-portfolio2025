@@ -116,3 +116,10 @@ h5 {
 .separator {
   margin-bottom: 36px;
 }
+button[aria-label="Switch to the dark theme"],
+button[aria-label="Switch to the light theme"],
+button[aria-label="Open file"],
+div[role="tablist"],
+button[aria-label="Full screen"] {
+  display: none !important;
+}

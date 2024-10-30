@@ -1,14 +1,33 @@
 "use client";
 import AboutMe from "@/components/AboutMe/AboutMe";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "./about.module.css";
-const cvs = [
-  { Backend: "/Abdullah_Mahmoud_NodeJs.pdf" },
-  { Frontend: "/Abdullah-Mahmoud-Frontend.pdf" },
-  { MERN: "/Abdullah-Mahmoud-MERN-Dev.pdf" },
-];
+import { Worker, Viewer } from "@react-pdf-viewer/core";
+import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+import CVPreview from "@/components/CVPreview/CVPreview";
+const cvs = {
+  Backend: "/Abdullah_Mahmoud_NodeJs.pdf",
+  Frontend: "/Abdullah-Mahmoud-Frontend.pdf",
+  MERN: "/Abdullah-Mahmoud-MERN-Dev.pdf",
+};
 export default function Page() {
-  const [cv, setCv] = useState("");
+  const [activeCV, setActiveCV] = useState("Frontend");
+  const [CVURL, setCVURL] = useState(cvs.Frontend);
+  useEffect(() => {
+    switch (activeCV) {
+      case "Backend":
+        setCVURL(cvs.Backend);
+        break;
+      case "Frontend":
+        setCVURL(cvs.Frontend);
+        break;
+      case "MERN":
+        setCVURL(cvs.MERN);
+        break;
+    }
+  }, [activeCV]);
   return (
     <div className="mb-6">
       <AboutMe>
@@ -47,10 +66,26 @@ export default function Page() {
       </AboutMe>
 
       <ul className={Styles.cvsNav}>
-        <li className={Styles.active}>Frontend</li>
-        <li>Backend</li>
-        <li>MERN</li>
+        <li
+          onClick={() => setActiveCV("Frontend")}
+          className={activeCV === "Frontend" ? Styles.active : ""}
+        >
+          Frontend
+        </li>
+        <li
+          onClick={() => setActiveCV("Backend")}
+          className={activeCV === "Backend" ? Styles.active : ""}
+        >
+          Backend
+        </li>
+        <li
+          onClick={() => setActiveCV("MERN")}
+          className={activeCV === "MERN" ? Styles.active : ""}
+        >
+          MERN
+        </li>
       </ul>
+      <CVPreview fileUrl={CVURL} />
     </div>
   );
 }
