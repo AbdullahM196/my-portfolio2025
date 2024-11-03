@@ -1,9 +1,11 @@
+"use client";
 import Image from "next/image";
-import React, { useCallback } from "react";
+import React, { useRef } from "react";
 import Styles from "./project.module.css";
 import { FiExternalLink } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 type Props = {
   project: {
@@ -14,8 +16,22 @@ type Props = {
     imglink: string;
     GithubLink: string;
   };
+  className?: string;
 };
 
+const setClasses = (technology: string): string => {
+  const techLower = technology.toLowerCase();
+  if (techLower === "react.js") {
+    return "react";
+  } else if (techLower === "express.js") {
+    return "express";
+  } else if (techLower === "mongodb") {
+    return "mongo";
+  } else if (techLower === "redux") {
+    return "redux";
+  }
+  return "javascript";
+};
 export default function Project({
   project: {
     name,
@@ -26,22 +42,15 @@ export default function Project({
     GithubLink,
   },
 }: Props) {
-  const setClasses = useCallback((technology: string): string => {
-    const techLower = technology.toLowerCase();
-    if (techLower === "react.js") {
-      return "react";
-    } else if (techLower === "express.js") {
-      return "express";
-    } else if (techLower === "mongodb") {
-      return "mongo";
-    } else if (techLower === "redux") {
-      return "redux";
-    }
-    return "javascript";
-  }, []);
-
+  const ref = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1.33 1"],
+  });
+  const scale = useTransform(scrollYProgress, [0, 1], [0.7, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
   return (
-    <div className={Styles.project}>
+    <motion.div ref={ref} className={Styles.project} style={{ scale, opacity }}>
       <section className={Styles.imageContainer}>
         <Image src={imglink} alt={name} width={400} height={400} />
       </section>
@@ -65,6 +74,6 @@ export default function Project({
           </Link>
         </span>
       </aside>
-    </div>
+    </motion.div>
   );
 }

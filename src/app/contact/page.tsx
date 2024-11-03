@@ -1,26 +1,7 @@
 import ContactForm from "@/components/contactForm/ContactForm";
 import Image from "next/image";
-import React, { CSSProperties } from "react";
-import Style from "./contact.module.css";
-interface customCssProperties extends CSSProperties {
-  "--position"?: number;
-  "--quantity"?: number;
-}
-const listStyle: customCssProperties = {
-  "--quantity": 4,
-};
-const p1Style: customCssProperties = {
-  "--position": 1,
-};
-const p2Style: customCssProperties = {
-  "--position": 2,
-};
-const p3Style: customCssProperties = {
-  "--position": 3,
-};
-const p4Style: customCssProperties = {
-  "--position": 4,
-};
+import React from "react";
+
 export default function page() {
   return (
     <div className="flex flex-col" style={{ height: "calc(100vh - 150px)" }}>

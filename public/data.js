@@ -28,6 +28,7 @@ const skills = [
 ];
 const projects = [
   {
+    id: 1,
     name: "e-commerce userSide",
     imglink:
       "https://res.cloudinary.com/abdullah-mahmoud/image/upload/v1708116480/MyProjects/zdhdc2udn9jgnoeoj4te.png",
@@ -38,6 +39,7 @@ const projects = [
       "Revolutionize your online shopping experience with our cutting-edge e-commerce platform, boasting seamless user authentication and a robust Node.js backend. Enjoy secure access to your account, streamlined browsing, and effortless transactions, all powered by advanced technology. Elevate your online presence and engage customers like never before with our dynamic user interface and powerful backend infrastructure.",
   },
   {
+    id: 2,
     name: "e-commerce adminSide",
     imglink:
       "https://res.cloudinary.com/abdullah-mahmoud/image/upload/v1708116474/MyProjects/uoktig0mx9jk9xq2ptcc.png",
@@ -48,6 +50,7 @@ const projects = [
       "Revolutionize your online shopping experience with our cutting-edge e-commerce platform, boasting seamless user authentication and a robust Node.js backend. Enjoy secure access to your account, streamlined browsing, and effortless transactions, all powered by advanced technology. Elevate your online presence and engage customers like never before with our dynamic user interface and powerful backend infrastructure.",
   },
   {
+    id: 3,
     name: "Todo-app",
     imglink:
       "https://res.cloudinary.com/abdullah-mahmoud/image/upload/v1708116468/MyProjects/fcbpxlqarhefgg9bzzxe.png",
@@ -58,6 +61,7 @@ const projects = [
       "The ultimate Todo app. Add, edit, and delete tasks. Create and manage your tasks with ease. Track your progress and stay organized. With Todo, you can accomplish anything.",
   },
   {
+    id: 4,
     name: "YoutubeClone",
     imglink:
       "https://res.cloudinary.com/abdullah-mahmoud/image/upload/v1708116479/MyProjects/xfztvef3dkeb3u7l0k9r.png",
@@ -68,4 +72,13 @@ const projects = [
       "Watch videos without leaving the page. Create your account and start watching. Add videos to your favorites. Save and share videos. Join our community and start watching.",
   },
 ];
-export { aboutMe, skills, projects };
+const jobs = ["Frontend Developer", "Backend  Developer", "FullStackDeveloper"];
+const abilities = [
+  "Crafting Fully Responsive Websites for All Devices",
+  "Delivering Seamless, Intuitive User Experiences",
+  "Expert in Building Dynamic, Fast Single Page Applications (SPAs) with React.js and Next.js",
+  "Developing High-Performance APIs with Node.js, MongoDB, and MySQL for Security and Scalability",
+  "Implementing Secure Authentication with JWT & OAuth for Safe, Real-Time Applications",
+];
+
+export { aboutMe, skills, projects, jobs, abilities };

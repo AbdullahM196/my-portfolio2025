@@ -1,10 +1,24 @@
-"use client";
-import React, { useRef } from "react";
+import React from "react";
 import Styles from "./contact.module.css";
+import * as motion from "framer-motion/client";
+
+const initAnimate = {
+  opacity: 0,
+  y: 50,
+};
+const animate = {
+  opacity: 1,
+  y: 0,
+};
 export default function ContactForm() {
-  const textareaRef = useRef(null);
   return (
-    <div className="flex flex-col gap-5 separator">
+    <motion.div
+      id="contact"
+      initial={initAnimate}
+      animate={animate}
+      transition={{ duration: 2 }}
+      className="flex flex-col gap-5 separator contactForm"
+    >
       <h2>{"Let's"} Connect!</h2>
       <section className={Styles.contactBody}>
         <p>
@@ -38,6 +52,6 @@ export default function ContactForm() {
         </p>
       </section>
       <button className={"button"}>Send Request</button>
-    </div>
+    </motion.div>
   );
 }
