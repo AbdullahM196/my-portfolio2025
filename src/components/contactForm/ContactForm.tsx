@@ -18,28 +18,30 @@ export default function ContactForm() {
     useremail: "",
     userphone: "",
     message: "",
-    
   });
-  
 
   const sendEmail = () => {
     console.log(data);
     if (!data) return;
-    
+
     emailjs
-      .send("service_j5t7v1t", "template_t9igj9l", {
-        ...data,
-        subject: "New Project Inquiry - " + data.username,
-      }, "GRLBw_Lqw8nu1s8_d")
+      .send(
+        "service_j5t7v1t",
+        "template_t9igj9l",
+        {
+          ...data,
+          subject: "New Project Inquiry - " + data.username,
+        },
+        "GRLBw_Lqw8nu1s8_d"
+      )
       .then(
         (result) => {
-          console.log(result.text);
           toast.success("Email sent successfully");
           setData({
             username: "",
             useremail: "",
             userphone: "",
-            message: ""
+            message: "",
           });
         },
         (error) => {

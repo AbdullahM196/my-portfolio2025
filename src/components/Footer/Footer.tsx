@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="w-full flex justify-center gap-2 mt-auto">
-      <p>2024 My Portfolio. All rights reserved.</p>
+      <p>2025 My Portfolio. All rights reserved.</p>
 
       <Link href={"https://github.com/AbdullahM196"} target="_blank">
         <Github width="24" height="24" />
