@@ -4,7 +4,8 @@ import { TbSend } from "react-icons/tb";
 import * as motion from "framer-motion/client";
 import Jobs from "./Jobs";
 import NavigateButton from "../ButtonComponent/NavigateButton";
-
+import { RxDownload } from "react-icons/rx";
+import { cv } from "../../../public/data";
 const animateInit = {
   opacity: 0,
   y: 50,
@@ -15,42 +16,38 @@ const animate = {
 };
 export default function HeroSection() {
   return (
-    <div id="hero" className={styles.hero}>
-      <motion.section
-        className={styles.textContainer}
-        initial={animateInit}
-        animate={animate}
-        transition={{ duration: 2 }}
-      >
-        <h1>👋 Hi {"I'm"} Abdullah Mahmoud</h1>
-        <span>
-          <p className="largeText">{"I'm"} a</p>
-          <Jobs />
-        </span>
-        <p className={`smallText ${styles.description}`}>
-          Passionate about crafting innovative, reliable web solutions across
-          e-commerce, social media, and blogging platforms. Driven to become a
-          senior developer, I specialize in building impactful applications
-          using React, Node.js, and MongoDB or PostgresSql.
-        </p>
+    <motion.section
+      id="home"
+      className={styles.textContainer}
+      initial={animateInit}
+      animate={animate}
+      transition={{ duration: 2 }}
+    >
+      <Image
+        className="rounded-full"
+        src="https://firebasestorage.googleapis.com/v0/b/test-6f98f.appspot.com/o/my%20Portfolio%2FmyImage.jpeg?alt=media&token=ef14721d-5216-47f2-836a-e5c9f876c66e"
+        alt="abdullah mahmoud personal photo"
+        width={120}
+        height={120}
+      />
+      <h1 className="text-center">👋 Hi! {"I'm"} Abdullah Mahmoud</h1>
+      <span>
+        <p className="largeText">{"I'm"} a</p>
+        <Jobs />
+      </span>
+      <p className={styles.description}>
+        I am a web developer based on Alexandria, Egypt with a passion for
+        creating <br /> innovative and reliable web solutions.
+      </p>
 
-        <NavigateButton title="Contact Me" path="contact">
+      <div className="flex gap-4">
+        <NavigateButton title="Contact Me" path="/contact">
           <TbSend size={24} fill="var(--textColor)" />
         </NavigateButton>
-      </motion.section>
-      <motion.aside
-        initial={animateInit}
-        animate={animate}
-        transition={{ duration: 2 }}
-      >
-        <Image
-          src={"/developer.svg"}
-          alt="Hero image"
-          width={400}
-          height={400}
-          priority
-        />
-      </motion.aside>
-    </div>
+        <NavigateButton title={"preview cv"} path={cv}>
+          <RxDownload size={24} />
+        </NavigateButton>
+      </div>
+    </motion.section>
   );
 }

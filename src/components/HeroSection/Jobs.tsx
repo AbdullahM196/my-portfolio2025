@@ -2,7 +2,9 @@
 import { useEffect, useState } from "react";
 import { jobs } from "../../../public/data";
 import styles from "./hero.module.css";
+import useScreenWidth from "@/hooks/screenWidth";
 export default function Jobs() {
+  const screenWidth = useScreenWidth();
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {

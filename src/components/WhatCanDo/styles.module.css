@@ -1,35 +1,3 @@
-.slider {
-  width: 100%;
-  height: 30px;
-  border: 1px solid red;
-  overflow-x: hidden;
-  /* mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent); */
-}
-.slider .list {
-  display: flex;
-  width: 100%;
-  position: relative;
-  min-width: calc(var(--width) * var(--quantity));
-}
-.ability {
-  text-wrap: nowrap;
-  width: var(--width);
-  position: "absolute";
-  left: 100%;
-  animation: autoRun 10s linear infinite;
-  transition: filter 0.5s;
-  animation-delay: calc(
-    (10s / var(--quantity)) * (var(--position) - 1)
-  ) !important;
-}
-@keyframes autoRun {
-  from {
-    left: 100%;
-  }
-  to {
-    left: calc(var(--width) * -1);
-  }
-}
-.slider:hover .ability {
+.list:hover {
   animation-play-state: paused;
 }

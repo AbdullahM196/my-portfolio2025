@@ -12,9 +12,20 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+      },
+      {
+        protocol: "https",
         hostname: "create-blog-with-nextjs.vercel.app",
       },
     ],
+  },
+  experimental: {
+    turbo: {
+      resolveAlias: {
+        canvas: "./empty-module.ts",
+      },
+    },
   },
 };
 

@@ -8,12 +8,24 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        accentDark: "#ffdb4d",
+        accent: "#7B00D3",
       },
+      animation: {
+        roll: "roll 24s linear infinite",
+      },
+      keyframes: {
+        roll: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
+      screens:{
+        md:"850px"
+      }
     },
+
   },
   plugins: [],
 };

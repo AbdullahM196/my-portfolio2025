@@ -1,17 +1,20 @@
-import React from "react";
-import Styles from "./aboutme.module.css";
+import React, { ReactNode } from "react";
+
 type Props = {
   title: string;
-  subtitle?: string;
+  svg: ReactNode;
   content: string;
 };
 
-export default function AboutSection({ title, subtitle, content }: Props) {
+export default function AboutCards({ svg, title, content }: Props) {
   return (
-    <section className={Styles.AboutSection}>
-      <p className={Styles.aboutSectionTitle}>{title}</p>
-      {subtitle && <h3>{subtitle}</h3>}
-      <p className={Styles.body}>{content}</p>
-    </section>
+    <div
+      className="flex flex-col gap-4 border border-[var(--mutedColor)] p-4 rounded-lg w-[200px] h-[200px]"
+      style={{ color: "var(--textColor)" }}
+    >
+      {svg}
+      <p className="font-bold">{title}</p>
+      <p className="text-sm">{content}</p>
+    </div>
   );
 }

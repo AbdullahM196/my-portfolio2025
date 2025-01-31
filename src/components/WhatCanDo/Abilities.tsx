@@ -1,37 +1,29 @@
-import React, { CSSProperties } from "react";
-import WhatCanDo from "./WhatCanDo";
 import { abilities } from "../../../public/data";
 import Styles from "./styles.module.css";
-interface customCssProperties extends CSSProperties {
-  "--position": number;
-  "--quantity": number;
-  "--width": string;
-}
-const quantity =abilities.length
 
 export default function Abilities() {
-
   return (
-    <div className={Styles.slider}>
-      <section className={Styles.list}>
-        {abilities.map((ability, idx) => (
-          <div
-          key={ability}
-          className={Styles.ability}
-          style={
-            {
-              "--position": idx,
-              "--quantity":quantity,
-              "--width": ability.length * 5 + "px",
-            } as customCssProperties
-          }
-        >
-          <div className="flex">
-            <p>{ability}</p>
-            <span className="px-4">|</span>
-          </div>
-        </div>
-        ))}
+    <div
+      className="w-full whitespace-nowrap overflow-hidden rounded-xl mb-4 box-border"
+      style={{
+        backgroundColor: "var(--accentColor)",
+        maskImage:
+          "linear-gradient(to right, transparent, #000 10% 90%, transparent)"
+      }}
+    >
+      <section
+        className={`${Styles.list} animate-roll w-full py-2 sm:py-3 flex items-center justify-center capitalize font-semibold tracking-wider text-sm sm:text-base`}
+      >
+        {abilities.map((ability, index, abilities) => {
+          return (
+            <div key={ability} className="text-black">
+              {ability}
+              {index < abilities.length - 1 && (
+                <span className="px-4 text-black">|</span>
+              )}
+            </div>
+          );
+        })}
       </section>
     </div>
   );

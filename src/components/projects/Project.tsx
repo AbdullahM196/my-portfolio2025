@@ -1,11 +1,14 @@
 "use client";
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { CSSProperties, useRef, useState } from "react";
 import Styles from "./project.module.css";
 import { FiExternalLink } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
+interface customStyle extends CSSProperties {
+  "--display": string;
+}
 
 type Props = {
   project: {
@@ -16,7 +19,7 @@ type Props = {
     imglink: string;
     GithubLink: string;
   };
-  className?: string;
+  index: number;
 };
 
 const setClasses = (technology: string): string => {
@@ -29,6 +32,10 @@ const setClasses = (technology: string): string => {
     return "mongo";
   } else if (techLower === "redux") {
     return "redux";
+  } else if (techLower.includes("firebase")) {
+    return "firebase";
+  } else if (techLower.includes("sql")) {
+    return "sql";
   }
   return "javascript";
 };
@@ -41,16 +48,25 @@ export default function Project({
     imglink,
     GithubLink,
   },
+  index,
 }: Props) {
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["0 1", "1.33 1"],
   });
   const scale = useTransform(scrollYProgress, [0, 1], [0.7, 1]);
   const opacity = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+  const style: customStyle = {
+    "--display": index % 2 === 0 ? "row" : "row-reverse",
+  };
+
   return (
-    <motion.div ref={ref} className={Styles.project} style={{ scale, opacity }}>
+    <motion.div
+      ref={ref}
+      className={Styles.project}
+      style={{ scale, opacity, ...style }}
+    >
       <section className={Styles.imageContainer}>
         <Image src={imglink} alt={name} width={400} height={400} />
       </section>

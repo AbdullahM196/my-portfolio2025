@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
@@ -6,20 +7,26 @@ type Props = {
   path: string;
   title: string;
   children?: React.ReactNode;
+  borderColor?: string;
 };
 
-export default function NavigateButton({ path, title, children }: Props) {
-  const router = useRouter();
+export default function NavigateButton({
+  path,
+  title,
+  children,
+  borderColor,
+}: Props) {
   const pathname = usePathname();
 
   return (
-    <button
+    <Link
       className={`button ${children && "flex gap-3"} ${
         pathname !== "/" ? "hidden" : ""
       }`}
-      onClick={() => router.push(`/${path}`)}
+      href={path}
+      style={{ borderColor }}
     >
       {title} {children}
-    </button>
+    </Link>
   );
 }

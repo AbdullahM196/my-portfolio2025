@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-const ids = ["hero", "about", "projectsSection", "contact"];
+const ids = ["home", "about", "projects", "contact"];
 const useScrollSpy = () => {
   const [activeSection, setActiveSection] = useState("hero");
 
