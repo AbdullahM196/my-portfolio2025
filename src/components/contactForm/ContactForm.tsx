@@ -26,13 +26,13 @@ export default function ContactForm() {
 
     emailjs
       .send(
-        "service_j5t7v1t",
+        process.env.ServiceId!,
         "template_t9igj9l",
         {
           ...data,
           subject: "New Project Inquiry - " + data.username,
         },
-        "GRLBw_Lqw8nu1s8_d"
+        process.env.Email_Js_PublicKey
       )
       .then(
         (result) => {
