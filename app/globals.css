@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[data-theme="dark"] {
+  /* primary color for headers, buttons, and links. */
+  --primaryColor: #4a90e2;
+  /*mint color highlights, call-to-action buttons, and interactive elements. */
+  --secondaryColor: #50e3c2;
+  --backgroundColor: #151515;
+  --textColor: #e0e0e0;
+  /* Accent colors can be used sparingly to draw attention to important information or actions. */
+  --accentColor: #f5a623;
+  /* Muted colors  can be used for borders, separators, or less important elements to avoid distraction. */
+  --mutedColor: #444;
+  --headerText: #fff;
+  --navbar: #151515;
+}
+[data-theme="light"] {
+  /* primary color for headers, buttons, and links. */
+  --primaryColor: ##4a90e2;
+  /*mint color highlights, call-to-action buttons, and interactive elements. */
+  --secondaryColor: #50e3c2;
+  --backgroundColor: #ffffff;
+  --textColor: #151515;
+  /* Accent colors can be used sparingly to draw attention to important information or actions. */
+  --accentColor: #f5a623;
+  /* Muted colors  can be used for borders, separators, or less important elements to avoid distraction. */
+  --mutedColor: #e6e6e6;
+  --headerText: #e0e0e0;
+  --navbar: #fff;
+}
+.Toastify__toast--error {
+  background: var(--frontColor) !important;
+  color: var(--font-color) !important;
+  font-size: 16px;
+}
+
+.Toastify__toast--success {
+  background: var(--frontColor) !important;
+  color: var(--font-color) !important;
+  font-size: 16px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--textColor);
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scroll-snap-stop: always;
+}
+:target {
+  scroll-margin-top: 100px;
+}
+
+body {
+  background-color: var(--backgroundColor);
+  scrollbar-color: var(--secondaryColor);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--secondaryColor);
+  border-radius: 10px !important;
+}
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 25px;
+}
+body::-moz-scrollbar {
+  width: 8px;
+}
+.app {
+  max-width: 100vw;
+  padding: 0 44px;
+  min-height: 100vh;
+}
+.app > * {
+  width: 1440px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+}
+h2 {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+.largeText {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.3;
+}
+h3 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.4;
+}
+h4 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.5;
+}
+h5 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.6;
+}
+.h6 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.7;
+}
+.subHeading {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.smallText {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.button {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.5;
+  background-color: transparent;
+  color: var(--textColor);
+  border: 2px solid var(--textColor);
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+}
+.button:hover {
+  background-color: var(--textColor);
+  color: var(--backgroundColor);
+  border-color: var(--textColor) !important;
+}
+.button:hover > svg,
+.button:hover path {
+  fill: var(--backgroundColor) !important;
+}
+
+@media only screen and (max-width: 950px) {
+  .app {
+    padding: 0 24px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .app {
+    padding: 0 10px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .app {
+    padding: 0 24px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .contactPage {
+    flex-direction: column;
+  }
+  .contactPage > * {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .contactPage img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 50%;
+  }
+}
