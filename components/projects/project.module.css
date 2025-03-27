@@ -42,7 +42,8 @@
 
 .technologyList {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
 .technologyList li {
@@ -63,6 +64,10 @@
   color: #58c4dc;
   background-color: #23272f;
 }
+.react-router {
+  color: #000;
+  background-color: #d2d6e2;
+}
 .redux {
   color: #58c4dc;
   background-color: #23272f;
@@ -79,6 +84,10 @@
   color: #bf930c;
   background-color: #2f2918;
 }
+.typescript {
+  color: white;
+  background-color: #3d72cc;
+}
 .firebase {
   color: #fff;
   background-color: #62400c;
@@ -86,6 +95,18 @@
 .sql {
   color: #e69400;
   background-color: #4b6d95;
+}
+.socketio {
+  color: #fff;
+  background-color: #010101;
+}
+.redis {
+  color: #fff;
+  background-color: #d82c20;
+}
+.docker {
+  color: #fff;
+  background-color: #0db7ed;
 }
 @media only screen and (max-width: 768px) {
   .project {

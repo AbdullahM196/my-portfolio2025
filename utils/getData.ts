@@ -2,7 +2,7 @@
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 
-async function getAllProjects(limitNum?: number) {
+async function getAllProjects(limitNum?: number): Promise<ProjectType[]> {
   const collectionRef = collection(db, "projects");
   const data = limitNum
     ? query(collectionRef, orderBy("createdAt", "desc"), limit(limitNum))
@@ -10,7 +10,7 @@ async function getAllProjects(limitNum?: number) {
 
   const projectSnapshots = await getDocs(data);
   const projects = projectSnapshots.docs.map((doc) => ({
-    data: doc.data(),
+    data: doc.data() as IProject,
     id: doc.id,
   }));
   return projects;

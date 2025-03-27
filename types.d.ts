@@ -4,5 +4,9 @@ declare interface IProject {
   technologies: string[];
   img: string;
   GithubLink: string;
-  websiteLink: string;
+  websiteLink?: string;
+}
+declare interface ProjectType {
+  data: IProject;
+  id: string;
 }

@@ -15,7 +15,7 @@ type Props = {
     name: string;
     description: string;
     technologies: string[];
-    websiteLink: string;
+    websiteLink: string | undefined;
     imglink: string;
     GithubLink: string;
   };
@@ -24,8 +24,12 @@ type Props = {
 
 const setClasses = (technology: string): string => {
   const techLower = technology.toLowerCase();
-  if (techLower === "react.js") {
+  if (techLower === "typescript") {
+    return "typescript";
+  } else if (techLower === "react.js") {
     return "react";
+  } else if (techLower === "react-router") {
+    return "react-router";
   } else if (techLower === "express.js") {
     return "express";
   } else if (techLower === "mongodb") {
@@ -36,6 +40,12 @@ const setClasses = (technology: string): string => {
     return "firebase";
   } else if (techLower.includes("sql")) {
     return "sql";
+  } else if (techLower === "socket.io") {
+    return "socketio";
+  } else if (techLower === "redis") {
+    return "redis";
+  } else if (techLower === "docker") {
+    return "docker";
   }
   return "javascript";
 };
@@ -81,10 +91,12 @@ export default function Project({
           ))}
         </ul>
         <span className={Styles.links}>
-          <Link href={websiteLink} className="flex align-center gap-2">
-            {" "}
-            <FiExternalLink size={32} /> <p className="my-auto">Live Demo</p>
-          </Link>
+          {websiteLink && (
+            <Link href={websiteLink} className="flex align-center gap-2">
+              {" "}
+              <FiExternalLink size={32} /> <p className="my-auto">Live Demo</p>
+            </Link>
+          )}
           <Link href={GithubLink} className="flex align-center gap-2">
             <FaGithub size={32} /> <p className="my-auto">Code</p>
           </Link>
