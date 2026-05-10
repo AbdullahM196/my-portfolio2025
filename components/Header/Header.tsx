@@ -1,18 +1,18 @@
 "use client";
-import Link from "next/link";
-import Styles from "./header.module.css";
+import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import Github from "../Icons/github";
-import { MdEmail } from "react-icons/md";
-import LinkedIn from "../Icons/linkedIn";
-import { FaWhatsapp } from "react-icons/fa";
-import useScrollSpy from "../../hooks/scrollSpy";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import SMNav from "./SMNav";
-import { AnimatePresence } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
+import { MdEmail } from "react-icons/md";
+import useScrollSpy from "../../hooks/scrollSpy";
+import Github from "../Icons/github";
+import LinkedIn from "../Icons/linkedIn";
+import Styles from "./header.module.css";
+import SMNav from "./SMNav";
 import ToggleTheme from "./ToggleTheme";
 
 export default function Header() {
@@ -26,7 +26,7 @@ export default function Header() {
       <div className={Styles.logo} onClick={() => router.push("/")}>
         <Image
           src={
-            "https://firebasestorage.googleapis.com/v0/b/test-6f98f.appspot.com/o/my%20Portfolio%2FmyImage.jpeg?alt=media&token=ef14721d-5216-47f2-836a-e5c9f876c66e"
+            "https://res.cloudinary.com/abdullah-mahmoud/image/upload/v1778424495/my_img_hv1poa.png"
           }
           alt="portfolio logo"
           width={48}

@@ -1,11 +1,10 @@
-import Image from "next/image";
-import styles from "./hero.module.css";
-import { TbSend } from "react-icons/tb";
 import * as motion from "framer-motion/client";
-import Jobs from "./Jobs";
-import NavigateButton from "../ButtonComponent/NavigateButton";
+import Image from "next/image";
 import { RxDownload } from "react-icons/rx";
-import { cv } from "../../public/data";
+import { TbSend } from "react-icons/tb";
+import NavigateButton from "../ButtonComponent/NavigateButton";
+import styles from "./hero.module.css";
+import Jobs from "./Jobs";
 const animateInit = {
   opacity: 0,
   y: 50,
@@ -25,7 +24,7 @@ export default function HeroSection() {
     >
       <Image
         className="rounded-full"
-        src="https://firebasestorage.googleapis.com/v0/b/test-6f98f.appspot.com/o/my%20Portfolio%2FmyImage.jpeg?alt=media&token=ef14721d-5216-47f2-836a-e5c9f876c66e"
+        src="https://res.cloudinary.com/abdullah-mahmoud/image/upload/v1778424495/my_img_hv1poa.png"
         alt="abdullah mahmoud personal photo"
         width={120}
         height={120}
@@ -44,7 +43,12 @@ export default function HeroSection() {
         <NavigateButton title="Contact Me" path="/contact">
           <TbSend size={24} fill="var(--textColor)" />
         </NavigateButton>
-        <NavigateButton title={"preview cv"} path={cv}>
+        <NavigateButton
+          title="preview cv"
+          path="/abdullah-MERN-cv.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <RxDownload size={24} />
         </NavigateButton>
       </div>

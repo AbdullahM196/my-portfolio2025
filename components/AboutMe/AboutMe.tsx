@@ -1,14 +1,14 @@
-import React, { ReactNode } from "react";
-import Styles from "./aboutme.module.css";
-import Image from "next/image";
-import Skill from "../Skill/Skill";
 import * as motion from "framer-motion/client";
-import Education from "../Icons/education";
-import AboutCards from "./aboutSection";
-import Work from "../Icons/work";
-import Code from "../Icons/Code";
-import Abilities from "../WhatCanDo/Abilities";
+import Image from "next/image";
+import { ReactNode } from "react";
 import { getAllSkills } from "../../utils/getData";
+import Code from "../Icons/Code";
+import Education from "../Icons/education";
+import Work from "../Icons/work";
+import Skill from "../Skill/Skill";
+import Abilities from "../WhatCanDo/Abilities";
+import Styles from "./aboutme.module.css";
+import AboutCards from "./aboutSection";
 
 type props = {
   children?: ReactNode;
@@ -93,7 +93,7 @@ export default async function AboutMe({ children }: props) {
             >
               <Image
                 src={
-                  "https://firebasestorage.googleapis.com/v0/b/test-6f98f.appspot.com/o/my%20Portfolio%2FmyImage.jpeg?alt=media&token=ef14721d-5216-47f2-836a-e5c9f876c66e"
+                  "https://res.cloudinary.com/abdullah-mahmoud/image/upload/v1778424495/my_img_hv1poa.png"
                 }
                 alt="about image"
                 width={300}

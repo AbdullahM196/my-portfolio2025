@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
-import "./globals.css";
-import "react-toastify/ReactToastify.css";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
-import ToggleThemeProvider from "../hooks/toogleTheme";
 import { Bounce, ToastContainer } from "react-toastify";
+import "react-toastify/ReactToastify.css";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+import ToggleThemeProvider from "../hooks/toogleTheme";
+import "./globals.css";
 
 const cairo = Cairo({
   weight: ["400", "500", "600", "700"],
@@ -14,7 +14,7 @@ const cairo = Cairo({
 
 export const metadata: Metadata = {
   icons: [
-    "https://firebasestorage.googleapis.com/v0/b/test-6f98f.appspot.com/o/my%20Portfolio%2FmyImage.jpeg?alt=media&token=ef14721d-5216-47f2-836a-e5c9f876c66e",
+    "https://res.cloudinary.com/abdullah-mahmoud/image/upload/v1778424495/my_img_hv1poa.png",
   ],
   title: "Abdullah Mahmoud | Web & Mobile Developer",
   description:

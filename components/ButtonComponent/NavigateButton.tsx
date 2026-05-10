@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 type Props = {
@@ -8,6 +8,8 @@ type Props = {
   title: string;
   children?: React.ReactNode;
   borderColor?: string;
+  target?: string;
+  rel?: string;
 };
 
 export default function NavigateButton({
@@ -15,6 +17,8 @@ export default function NavigateButton({
   title,
   children,
   borderColor,
+  target = "",
+  rel = "",
 }: Props) {
   const pathname = usePathname();
 
@@ -25,6 +29,7 @@ export default function NavigateButton({
       }`}
       href={path}
       style={{ borderColor }}
+      target={target}
     >
       {title} {children}
     </Link>
