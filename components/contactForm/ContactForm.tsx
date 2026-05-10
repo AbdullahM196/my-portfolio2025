@@ -1,9 +1,9 @@
 "use client";
-import React, { useState } from "react";
-import Styles from "./contact.module.css";
-import * as motion from "framer-motion/client";
 import emailjs from "@emailjs/browser";
+import * as motion from "framer-motion/client";
+import { useState } from "react";
 import { toast } from "react-toastify";
+import Styles from "./contact.module.css";
 const initAnimate = {
   opacity: 0,
   y: 50,
@@ -34,7 +34,7 @@ export default function ContactForm() {
           ...data,
           subject: "New Project - " + data.username,
         },
-        process.env.NEXT_PUBLIC_Email_Js_PublicKey
+        process.env.NEXT_PUBLIC_Email_Js_PublicKey,
       )
       .then(
         (result) => {
@@ -47,8 +47,9 @@ export default function ContactForm() {
           });
         },
         (error) => {
+          console.log({ error });
           toast.error("Failed to send email");
-        }
+        },
       );
   };
   return (

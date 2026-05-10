@@ -1,7 +1,7 @@
 import * as motion from "framer-motion/client";
 import Image from "next/image";
 import { ReactNode } from "react";
-import { getAllSkills } from "../../utils/getData";
+import { skills } from "../../public/data";
 import Code from "../Icons/Code";
 import Education from "../Icons/education";
 import Work from "../Icons/work";
@@ -45,15 +45,14 @@ const titleResult = {
   y: 0,
 };
 
-export default async function AboutMe({ children }: props) {
-  const Skills = await getAllSkills();
+export default function AboutMe({ children }: props) {
   const variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
 
       transition: {
-        duration: Skills.length * 0.2,
+        duration: skills.length * 0.2,
         staggerChildren: 0.2,
       },
     },
@@ -149,11 +148,11 @@ export default async function AboutMe({ children }: props) {
                   viewport={{ once: true }}
                   className="flex flex-wrap gap-2"
                 >
-                  {Skills.map(({ data, id }) => (
+                  {skills.map((skill, id) => (
                     <Skill
                       className="skill opacity-0 hover:scale-110 cursor-pointer"
                       key={id}
-                      title={data.name}
+                      title={skill}
                     />
                   ))}
                 </motion.section>

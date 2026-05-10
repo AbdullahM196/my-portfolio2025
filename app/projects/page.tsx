@@ -1,12 +1,11 @@
 import Project from "../../components/projects/Project";
-import { getAllProjects } from "../../utils/getData";
-export default async function Page() {
-  const projects = await getAllProjects();
+import { projects } from "../../public/data";
+export default function Page() {
   return (
     <div className="flex flex-col gap-6">
-      {projects.map(({ data: project, id }, index) => (
+      {projects.map((project, index) => (
         <Project
-          key={id}
+          key={index}
           project={{
             name: project.title,
             description: project.description,

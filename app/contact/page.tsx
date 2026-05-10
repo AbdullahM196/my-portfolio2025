@@ -1,6 +1,5 @@
-import ContactForm from "../../components/contactForm/ContactForm";
 import Image from "next/image";
-import React from "react";
+import ContactForm from "../../components/contactForm/ContactForm";
 
 export default function page() {
   return (
@@ -10,7 +9,7 @@ export default function page() {
           <Image
             className="rounded"
             src={
-              "https://firebasestorage.googleapis.com/v0/b/test-6f98f.appspot.com/o/my%20Portfolio%2FmyImage.jpeg?alt=media&token=ef14721d-5216-47f2-836a-e5c9f876c66e"
+              "https://res.cloudinary.com/abdullah-mahmoud/image/upload/v1778424495/my_img_hv1poa.png"
             }
             alt="abdullah mahmoud personal photo"
             width={400}

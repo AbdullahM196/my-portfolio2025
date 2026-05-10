@@ -1,9 +1,8 @@
-import Project from "./Project";
-import Link from "next/link";
 import * as motion from "framer-motion/client";
+import Link from "next/link";
+import { projects } from "../../public/data";
+import Project from "./Project";
 import Styles from "./project.module.css";
-import { getAllProjects } from "../../utils/getData";
-import { use } from "react";
 const viewMoreInit = {
   opacity: 0,
   x: 50,
@@ -18,7 +17,6 @@ const resultAnimation = {
 };
 
 export default function AllProjects() {
-  const projects = use(getAllProjects(4));
   return (
     <div id="projects" className="overflow-hidden min-h-screen py-4 mb-8">
       <section className="flex align-top justify-between mb-5">
@@ -49,9 +47,9 @@ export default function AllProjects() {
         id="allProjects"
         className={`w-full flex flex-col gap-6 align-center justify-center ${Styles.projectsList}`}
       >
-        {projects?.map(({ data: project, id }, index) => (
+        {projects.slice(0, 4).map((project, index) => (
           <Project
-            key={id}
+            key={index}
             project={{
               name: project.title,
               description: project.description,
