@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import { jobs } from "../../public/data";
-import styles from "./hero.module.css";
 import useScreenWidth from "../../hooks/screenWidth";
+import styles from "./hero.module.css";
+const jobs = ["Frontend Developer", "Backend  Developer", "FullStackDeveloper"];
 export default function Jobs() {
   const screenWidth = useScreenWidth();
   const [currentIndex, setCurrentIndex] = useState(0);

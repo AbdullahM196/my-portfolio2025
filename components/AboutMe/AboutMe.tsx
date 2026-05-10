@@ -1,7 +1,6 @@
 import * as motion from "framer-motion/client";
 import Image from "next/image";
 import { ReactNode } from "react";
-import { skills } from "../../public/data";
 import Code from "../Icons/Code";
 import Education from "../Icons/education";
 import Work from "../Icons/work";
@@ -9,7 +8,21 @@ import Skill from "../Skill/Skill";
 import Abilities from "../WhatCanDo/Abilities";
 import Styles from "./aboutme.module.css";
 import AboutCards from "./aboutSection";
-
+const skills = [
+  "Express.Js",
+  "Javascript",
+  "Redis",
+  "MongoDB",
+  "Node.Js",
+  "React.Js",
+  "HTML",
+  "Next.Js",
+  "CSS",
+  "Docker",
+  "SQL",
+  "Typescript",
+  "Git",
+];
 type props = {
   children?: ReactNode;
 };
